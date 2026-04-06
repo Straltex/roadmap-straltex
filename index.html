@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Straltex — Cold Email Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;overflow-x:hidden;}
+body{background:#0A0A0A;font-family:'Barlow',sans-serif;color:#fff;}
+ 
+/* ── ESTRUCTURA ── */
+.section{padding:clamp(28px,3.5vw,52px) 0;width:100%;}
+.section.bg-dark{background:#111;}
+.section.bg-mid{background:#0D0D0D;}
+.section.bg-black{background:#0A0A0A;}
+.inner{max-width:1360px;margin:0 auto;padding:0 6%;}
+ 
+/* ── HEADER ── */
+.site-header{background:#0D0D0D;border-bottom:2px solid #00BFFF;padding:clamp(24px,3.5vw,48px) 0;text-align:center;width:100%;}
+.site-header .inner{display:flex;flex-direction:column;align-items:center;}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,44px);letter-spacing:4px;color:#fff;}
+.logo span{color:#00BFFF;}
+.logo-tag{font-size:clamp(10px,1.2vw,12px);letter-spacing:3px;text-transform:uppercase;color:#aaa;margin-top:4px;}
+.header-label{font-size:clamp(10px,1.2vw,12px);letter-spacing:4px;text-transform:uppercase;color:#00BFFF;margin-top:24px;margin-bottom:8px;}
+.header-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,96px);color:#fff;line-height:1;}
+.header-title span{color:#00BFFF;}
+.header-sub{font-size:clamp(15px,1.6vw,19px);color:#ccc;margin-top:14px;font-weight:300;max-width:580px;line-height:1.7;text-align:center;}
+.header-cta{display:inline-block;background:#00BFFF;color:#000;font-size:clamp(12px,1.4vw,14px);font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 40px;margin-top:24px;text-decoration:none;}
+ 
+/* ── SECTION LABELS ── */
+.section-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#00BFFF;margin-bottom:8px;}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(26px,3.2vw,40px);font-weight:700;color:#fff;text-transform:uppercase;margin-bottom:clamp(20px,2.5vw,32px);line-height:1.1;}
+ 
+/* ── INTRO ── */
+.intro-text{font-size:clamp(14px,1.5vw,17px);color:#ccc;font-weight:300;line-height:1.8;max-width:680px;}
+ 
+/* ── METRICS ── */
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.metric{background:#0D0D0D;padding:clamp(18px,2.5vw,32px) 14px;text-align:center;border-bottom:2px solid #00BFFF;}
+.metric-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6vw,72px);color:#00BFFF;line-height:1;}
+.metric-label{font-size:clamp(10px,1.1vw,12px);color:#fff;letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+ 
+/* ── PHASES ── */
+.phases{display:flex;flex-direction:column;gap:2px;}
+.phase{background:#0D0D0D;}
+.phase-header{display:flex;align-items:center;gap:clamp(14px,2vw,24px);padding:clamp(16px,2vw,26px) clamp(18px,2.5vw,32px);border-left:4px solid #1A1A1A;}
+.phase-now .phase-header{border-left-color:#FF6B35;}
+.phase-soon .phase-header{border-left-color:#00BFFF;}
+.phase-close .phase-header{border-left-color:#00CC66;}
+ 
+/* FIX: número de fase en una sola línea */
+.phase-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,4.5vw,52px);
+  line-height:1;
+  min-width:clamp(44px,5vw,60px);
+  white-space:nowrap;
+  letter-spacing:-1px;
+}
+.phase-now .phase-num{color:#FF6B35;}
+.phase-soon .phase-num{color:#00BFFF;}
+.phase-close .phase-num{color:#00CC66;}
+ 
+.phase-tag{font-size:clamp(9px,1vw,11px);letter-spacing:3px;text-transform:uppercase;margin-bottom:3px;}
+.phase-now .phase-tag{color:#FF6B35;}
+.phase-soon .phase-tag{color:#00BFFF;}
+.phase-close .phase-tag{color:#00CC66;}
+.phase-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(19px,2.5vw,26px);font-weight:700;color:#fff;text-transform:uppercase;}
+.phase-time{font-size:clamp(10px,1.2vw,13px);color:#555;margin-left:auto;white-space:nowrap;flex-shrink:0;}
+.phase-body{padding:0 clamp(18px,2.5vw,32px) clamp(16px,2vw,24px);}
+.step-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.step-grid.cols-3{grid-template-columns:repeat(3,1fr);}
+.step{display:flex;gap:clamp(12px,1.5vw,18px);padding:clamp(14px,1.8vw,20px);background:#111;}
+.step-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.phase-now .step-dot{background:#FF6B35;}
+.phase-soon .step-dot{background:#00BFFF;}
+.phase-close .step-dot{background:#00CC66;}
+.step-label{font-size:clamp(13px,1.5vw,15px);font-weight:700;color:#fff;margin-bottom:5px;}
+.step-desc{font-size:clamp(12px,1.3vw,14px);color:#aaa;font-weight:300;line-height:1.6;}
+.step-badge{display:inline-block;font-size:clamp(9px,1vw,11px);letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;margin-top:8px;}
+.badge-orange{background:#1A0E08;color:#FF6B35;border:1px solid #2A1A10;}
+.badge-blue{background:#081422;color:#00BFFF;border:1px solid #0A1E30;}
+.badge-green{background:#081A0E;color:#00CC66;border:1px solid #0A2A14;}
+.badge-gray{background:#141414;color:#888;border:1px solid #222;}
+ 
+/* ── FUNNEL ── */
+.funnel-wrap{text-align:center;}
+.funnel-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:24px;}
+.funnel-item{background:#111;padding:clamp(18px,2vw,28px) 10px;border-bottom:3px solid #00BFFF;text-align:center;}
+.funnel-item:last-child{border-bottom-color:#00CC66;}
+.funnel-name{font-size:clamp(11px,1.2vw,13px);color:#aaa;font-weight:300;margin-bottom:8px;}
+.funnel-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,44px);color:#00BFFF;line-height:1;}
+.funnel-item:last-child .funnel-num{color:#00CC66;}
+ 
+/* ── GOAL ── */
+.goal-wrap{text-align:center;}
+.goal-label{font-size:clamp(10px,1.2vw,12px);letter-spacing:4px;text-transform:uppercase;color:#00BFFF;margin-bottom:14px;}
+.goal-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,11vw,120px);color:#fff;line-height:1;}
+.goal-num span{color:#00BFFF;}
+.goal-sub{font-size:clamp(14px,1.5vw,17px);color:#ccc;margin-top:14px;font-weight:300;line-height:1.9;}
+.goal-sub strong{color:#00BFFF;}
+ 
+/* ── CTA ── */
+.cta-wrap{text-align:center;}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5.5vw,68px);color:#000;line-height:1;margin-bottom:10px;}
+.cta-sub{font-size:clamp(14px,1.6vw,17px);color:#000;font-weight:600;margin-bottom:24px;}
+ 
+/* FIX: botón blanco con texto negro */
+.cta-btn{
+  display:inline-block;
+  background:#fff;
+  color:#000;
+  font-size:clamp(13px,1.5vw,16px);
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:18px 52px;
+  text-decoration:none;
+  border:2px solid #000;
+  transition:background 0.2s,color 0.2s;
+}
+.cta-btn:hover{background:#000;color:#00BFFF;}
+ 
+/* FIX: plazas limitadas con sirenas destacadas */
+.cta-note{
+  font-size:clamp(14px,1.6vw,18px);
+  color:#000;
+  font-weight:800;
+  margin-top:22px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+.cta-note .sirena{font-size:clamp(18px,2.2vw,24px);}
+ 
+/* ── CALENDLY INLINE EN CTA ── */
+.calendly-inline-wrap{
+  display:none;
+  width:100%;
+  max-width:860px;
+  margin:28px auto 0;
+  background:#000;
+  border:2px solid #000;
+  overflow:hidden;
+}
+.calendly-inline-wrap.open{display:block;}
+.calendly-inline-widget{
+  min-width:320px;
+  height:700px;
+  width:100%;
+}
+.cta-btn.active{background:#000;color:#fff;border-color:#000;}
+ 
+/* ── FOOTER ── */
+.footer{background:#060606;padding:clamp(20px,2.5vw,36px) 0;border-top:1px solid #111;text-align:center;width:100%;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,2.5vw,30px);color:#fff;letter-spacing:3px;margin-bottom:4px;}
+.footer-logo span{color:#00BFFF;}
+.footer-text{font-size:clamp(11px,1.1vw,13px);color:#fff;letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+.footer-ref{font-size:12px;color:#fff;letter-spacing:1px;margin-top:8px;}
+ 
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .step-grid.cols-3{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:900px){
+  .funnel-grid{grid-template-columns:1fr 1fr;}
+  .funnel-item{border-bottom:none;border-left:3px solid #00BFFF;}
+  .funnel-item:last-child{border-left-color:#00CC66;}
+  .step-grid.cols-3{grid-template-columns:1fr 1fr;}
+  .phase-header{flex-wrap:wrap;}
+  .phase-time{margin-left:0;margin-top:4px;width:100%;}
+}
+@media(max-width:640px){
+  .step-grid,.step-grid.cols-3{grid-template-columns:1fr;}
+  .metrics-grid{grid-template-columns:1fr 1fr 1fr;}
+  .funnel-grid{grid-template-columns:1fr;}
+  .goal-num{font-size:clamp(64px,18vw,96px);}
+  .cta-title{font-size:clamp(32px,9vw,56px);}
+  .calendly-inline-widget{height:580px;}
+}
+@media(max-width:420px){
+  .metrics-grid{grid-template-columns:1fr;}
+  .phase-num{font-size:32px;}
+}
+</style>
+</head>
+<body>
+ 
+<!-- HEADER -->
+<div class="site-header">
+  <div class="inner">
+    <div class="logo">STRAL<span>TEX</span></div>
+    <div class="logo-tag">Estrategia · Tecnología · Ejecución</div>
+    <div class="header-label">Contenido de valor — gratis para ti</div>
+    <div class="header-title">Cold Email<br><span>Roadmap</span></div>
+    <div class="header-sub">El sistema exacto para cerrar 2 clientes este mes con cold email — 4.000€ en caja desde el día que firman, sin apenas inversión.</div>
+    <a href="#fases" class="header-cta">→ Ver el sistema completo</a>
+  </div>
+</div>
+ 
+<!-- INTRO -->
+<div class="section bg-black">
+  <div class="inner">
+    <div class="section-label">Por qué funciona</div>
+    <div class="section-title">El método más directo para<br>conseguir clientes ahora mismo</div>
+    <p class="intro-text">No necesitas seguidores, ni presupuesto de publicidad, ni una marca establecida. Solo necesitas el sistema correcto, el nicho correcto y el mensaje correcto. Esto es exactamente lo que uso en Straltex.</p>
+  </div>
+</div>
+ 
+<!-- METRICS -->
+<div class="section bg-mid" style="padding-top:0;padding-bottom:0;">
+  <div class="inner">
+    <div class="metrics-grid">
+      <div class="metric"><div class="metric-num">15</div><div class="metric-label">Emails / día</div></div>
+      <div class="metric"><div class="metric-num">3</div><div class="metric-label">Reuniones / sem</div></div>
+      <div class="metric"><div class="metric-num">2</div><div class="metric-label">Clientes / mes</div></div>
+    </div>
+  </div>
+</div>
+ 
+<!-- PHASES -->
+<div class="section bg-dark" id="fases">
+  <div class="inner">
+    <div class="section-label">El proceso completo</div>
+    <div class="section-title">4 fases para cerrar clientes en frío</div>
+    <div class="phases">
+ 
+      <!-- FASE 01 -->
+      <div class="phase phase-now">
+        <div class="phase-header">
+          <div class="phase-num">01</div>
+          <div>
+            <div class="phase-tag">Hacer ahora</div>
+            <div class="phase-title">Setup Técnico</div>
+          </div>
+          <div class="phase-time">Días 1–3</div>
+        </div>
+        <div class="phase-body">
+          <div class="step-grid cols-3">
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Crear subdominio de prospección</div><div class="step-desc">prospecting@tudominio.com. Nunca usar el dominio principal para cold email — proteges tu reputación.</div><span class="step-badge badge-orange">IONOS · Gratis</span></div></div>
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Configurar SPF + DKIM + DMARC</div><div class="step-desc">Registros DNS imprescindibles para no ir a spam. 10 minutos en tu panel de hosting.</div><span class="step-badge badge-orange">DNS · 10 minutos</span></div></div>
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Registrarse en Instantly.ai HOY</div><div class="step-desc">Conectas el subdominio y activas el calentamiento automático. 14 días gratis — empieza hoy para que esté listo cuando envíes.</div><span class="step-badge badge-orange">Instantly · 14 días gratis</span></div></div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- FASE 02 -->
+      <div class="phase phase-soon">
+        <div class="phase-header">
+          <div class="phase-num">02</div>
+          <div>
+            <div class="phase-tag">Semana 1</div>
+            <div class="phase-title">Prospección y Listas</div>
+          </div>
+          <div class="phase-time">Días 3–7</div>
+        </div>
+        <div class="phase-body">
+          <div class="step-grid cols-3">
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Elegir 1 solo nicho para empezar</div><div class="step-desc">Clínicas dentales o estéticas. Alta facturación, muchas tareas repetitivas, problema claro que tú resuelves.</div><span class="step-badge badge-blue">Nicho: Dental · Estética</span></div></div>
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Extraer 200-300 contactos con Apify</div><div class="step-desc">Google Maps → Apify extrae nombre, web, teléfono y email público. Lista completa exportada en 20 minutos.</div><span class="step-badge badge-blue">Apify · Gratis para empezar</span></div></div>
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Verificar emails con Hunter.io</div><div class="step-desc">Email del dueño o director. NUNCA info@ ni contacto@. Hunter.io tiene plan gratis.</div><span class="step-badge badge-blue">Hunter.io · Gratis</span></div></div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- FASE 03 -->
+      <div class="phase phase-soon">
+        <div class="phase-header">
+          <div class="phase-num">03</div>
+          <div>
+            <div class="phase-tag">Semana 2</div>
+            <div class="phase-title">Secuencia de 3 Emails</div>
+          </div>
+          <div class="phase-time">Días 7–14</div>
+        </div>
+        <div class="phase-body">
+          <div class="step-grid cols-3">
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Email 1 — Gancho personalizado</div><div class="step-desc">3-4 líneas máximo. Menciona algo específico de SU negocio. Un problema concreto. Una sola pregunta al final. Sin pitch todavía.</div><span class="step-badge badge-blue">Personalización alta</span></div></div>
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Email 2 — Loom Francotirador</div><div class="step-desc">Si no responde en 3 días: vídeo Loom de 3-5 min mostrando SU web y cómo la mejorarías. Muy personalizado, convierte mucho más que texto.</div><span class="step-badge badge-blue">Loom · Gratis</span></div></div>
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Email 3 — Cierre o descarte</div><div class="step-desc">"Entiendo que no es el momento, te dejo tranquilo." Muchos responden aquí por primera vez.</div><span class="step-badge badge-gray">Follow-up final</span></div></div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- FASE 04 -->
+      <div class="phase phase-close">
+        <div class="phase-header">
+          <div class="phase-num">04</div>
+          <div>
+            <div class="phase-tag">Semana 2-3</div>
+            <div class="phase-title">Reunión y Cierre</div>
+          </div>
+          <div class="phase-time">Días 10–21</div>
+        </div>
+        <div class="phase-body">
+          <div class="step-grid cols-3">
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Llamada de diagnóstico — 30 min</div><div class="step-desc">No es una llamada de venta. Escuchas, haces preguntas, les muestras el antes y el después. Ellos mismos piden la solución.</div><span class="step-badge badge-green">Google Meet</span></div></div>
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Propuesta personalizada en 24h</div><div class="step-desc">Tienes la plantilla lista. La personalizas en 30 minutos y la mandas al día siguiente máximo.</div><span class="step-badge badge-green">Propuesta lista ✓</span></div></div>
+            <div class="step"><div class="step-dot"></div><div><div class="step-label">Llamada de cierre — 15 min</div><div class="step-desc">Resuelves dudas, confirmas el precio y cierras el 50% inicial. El dinero entra el mismo día.</div><span class="step-badge badge-green">2.000€+ entrada inmediata</span></div></div>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</div>
+ 
+<!-- FUNNEL -->
+<div class="section bg-mid">
+  <div class="inner">
+    <div class="funnel-wrap">
+      <div class="section-label" style="text-align:center;">El embudo real</div>
+      <div class="section-title" style="text-align:center;">Qué esperar con 100 emails</div>
+      <div class="funnel-grid">
+        <div class="funnel-item"><div class="funnel-name">Emails enviados</div><div class="funnel-num">100</div></div>
+        <div class="funnel-item"><div class="funnel-name">Respuestas positivas</div><div class="funnel-num">8–10</div></div>
+        <div class="funnel-item"><div class="funnel-name">Llamadas diagnóstico</div><div class="funnel-num">4–5</div></div>
+        <div class="funnel-item"><div class="funnel-name">Propuestas enviadas</div><div class="funnel-num">3</div></div>
+        <div class="funnel-item"><div class="funnel-name">Clientes cerrados</div><div class="funnel-num">1–2</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- GOAL -->
+<div class="section bg-dark" style="border-top:3px solid #00BFFF;">
+  <div class="inner">
+    <div class="goal-wrap">
+      <div class="goal-label">Objetivo del mes</div>
+      <div class="goal-num">4.000<span>€</span></div>
+      <div class="goal-sub">2 clientes × <strong>4.000€ precio</strong> — cobras el <strong>50% al firmar</strong><br>Entrada real en caja: <strong>2.000€ × 2 = 4.000€</strong><br>+ mantenimiento recurrente <strong>300€/mes</strong> por cliente</div>
+    </div>
+  </div>
+</div>
+ 
+<!-- CTA PRINCIPAL + CALENDLY INLINE -->
+<div class="section" style="background:#00BFFF;padding:clamp(40px,5vw,72px) 0;" id="cta-section">
+  <div class="inner">
+    <div class="cta-wrap">
+      <div class="cta-title">¿Quieres que lo<br>implementemos juntos?</div>
+      <p class="cta-sub">Diagnóstico gratuito de 30 minutos — sin compromiso.</p>
+      <button id="btn-calendly" class="cta-btn" onclick="toggleCalendly()">→ Reservar mi sesión gratuita</button>
+      <p class="cta-note">
+        <span class="sirena">🚨</span>
+        PLAZAS LIMITADAS EN MALLORCA Y ESPAÑA
+        <span class="sirena">🚨</span>
+      </p>
+      <!-- Calendly inline expand -->
+      <div class="calendly-inline-wrap" id="calendly-wrap">
+        <div
+          class="calendly-inline-widget"
+          data-url="https://calendly.com/lluisperezbibiloni/tu-1-asesoria-gratis?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=00bfff"
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+function toggleCalendly(){
+  var wrap = document.getElementById('calendly-wrap');
+  var btn  = document.getElementById('btn-calendly');
+  var open = wrap.classList.contains('open');
+  if(open){
+    wrap.classList.remove('open');
+    btn.classList.remove('active');
+    btn.textContent = '→ Reservar mi sesión gratuita';
+  } else {
+    wrap.classList.add('open');
+    btn.classList.add('active');
+    btn.textContent = '✕ Cerrar calendario';
+    setTimeout(function(){
+      wrap.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 100);
+  }
+}
+</script>
+ 
+<!-- FOOTER -->
+<div class="footer">
+  <div class="inner">
+    <div class="footer-logo">STRAL<span>TEX</span></div>
+    <div class="footer-text">Estrategia · Tecnología · Ejecución</div>
+    <div class="footer-ref">STRALTEX · Cold Email System 2026 · straltex.com</div>
+  </div>
+</div>
+ 
+</body>
+</html>
